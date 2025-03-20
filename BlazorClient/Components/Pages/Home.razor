@@ -1,7 +1,126 @@
 ﻿@page "/"
+@using BlazorClient.Models
+@using BlazorClient.Services
+@inject UserService UserService
+@inject NavigationManager Navigation
 
-<PageTitle>Home</PageTitle>
+<h3><strong>Korisnici:</strong></h3>
 
-<h1>Hello, world!</h1>
+<div>
+    <button @onclick="NavigateToLog">Log</button>
+</div>
+<div style="height: 80vh;">
+    <div style="width: 50%;">
+        <table>
+            <thead>
+            <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Broj logiranja</th>
+                <th>Ispravi</th>
+                <th>Obriši</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var user in _users)
+            {
+                <tr>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.LoginCount</td>
+                    <td><button @onclick="() => EditUser(user)">Ispravi</button></td>
+                    <td><button @onclick="() => DeleteUser(user)">Obriši</button></td>
+                </tr>
+            }
+            </tbody>
+        </table>
 
-Welcome to your new app.
+        <div>
+            <button @onclick="ToggleAddUserForm">Dodaj novog korisnika</button>
+        </div>
+    </div>
+</div>
+
+@if (_showAddUserForm)
+{
+    <EditForm Model="_userRegistration" OnValidSubmit="AddUser">
+        <div>
+            <div>
+                <h5>Dodaj novog korisnika</h5>
+                <button @onclick="ToggleAddUserForm"></button>
+            </div>
+            <div>
+                <div>
+                    <label>Ime</label>
+                    <input @bind="_userRegistration.FirstName">
+                </div>
+                <div>
+                    <label>Prezime</label>
+                    <input @bind="_userRegistration.LastName">
+                </div>
+                <div>
+                    <label>Korisničko ime</label>
+                    <input @bind="_userRegistration.Username">
+                </div>
+                <div>
+                    <label>Lozinka</label>
+                    <input type="password" @bind="_userRegistration.Password">
+                </div>
+            </div>
+            <div>
+                <button @onclick="ToggleAddUserForm">Zatvori</button>
+                <button type="submit">Dodaj</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+@code {
+    private List<User> _users = new List<User>();
+
+    //private UserService _userService = new UserService(new HttpService(new HttpClient()));
+
+    private UserRegistration _userRegistration = new UserRegistration();
+    private bool _showAddUserForm = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _users = await UserService.GetUsersTestAsync();
+    }
+
+    private async Task<List<User>?> GetUsers()
+    {
+        return await UserService.GetUsers();
+    }
+
+    private void EditUser(User user)
+    {
+        Console.WriteLine($"Editing {user.FirstName} {user.LastName}");
+    }
+
+    private void DeleteUser(User user)
+    {
+        _users.Remove(user);
+    }
+
+    private void AddUser()
+    {
+        _users.Add(new User
+        {
+            FirstName = _userRegistration.FirstName,
+            LastName = _userRegistration.LastName,
+            Username = _userRegistration.Username,
+            LoginRecords = new List<LoginRecord>()
+        });
+    }
+
+    private void ToggleAddUserForm()
+    {
+        _showAddUserForm = !_showAddUserForm;
+    }
+
+    private void NavigateToLog()
+    {
+        Navigation.NavigateTo("/log");
+    }
+}

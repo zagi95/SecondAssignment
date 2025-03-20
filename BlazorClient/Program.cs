@@ -1,4 +1,6 @@
 using BlazorClient.Components;
+using BlazorClient.Services;
+using BlazorClient.Services.Interface;
 
 namespace BlazorClient;
 
@@ -9,7 +11,10 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        builder.Services.AddRazorComponents()
+        builder.Services.AddScoped(c => new HttpClient())
+            .AddScoped<IHttpService, HttpService>()
+            .AddScoped<UserService>()
+            .AddRazorComponents()
             .AddInteractiveServerComponents();
 
         var app = builder.Build();

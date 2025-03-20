@@ -1,0 +1,100 @@
+@page "/log"
+@using BlazorClient.Models
+@using BlazorClient.Services
+@inject IJSRuntime JsRuntime
+
+<h3><strong>LoginHistory</strong></h3>
+
+<div style="height: 80vh;">
+    <div style="width: 50%;">
+        <table>
+            <thead>
+            <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Vrijeme</th>
+                <th>Browser</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var user in _users)
+            {
+                @foreach (var record in user.LoginRecords)
+                {
+                    <tr>
+                        <td>@user.FirstName</td>
+                        <td>@user.LastName</td>
+                        <td>@record.LoginDate</td>
+                        <td></td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+
+        <div>
+            <button @onclick="ToggleUserLoginForm">Dodaj novog korisnika</button>
+        </div>
+    </div>
+</div>
+
+@if (_showUserLoginForm)
+{
+    <EditForm Model="_userLogin" OnValidSubmit="SubmitForm">
+        <DataAnnotationsValidator />
+        <div>
+            <div>
+                <h5>Dodaj novog korisnika</h5>
+                <button @onclick="ToggleUserLoginForm"></button>
+            </div>
+            <div>
+                <div>
+                    <label>Korisničko ime</label>
+                    <input @bind="_userLogin.Username">
+                </div>
+                <div>
+                    <label>Lozinka</label>
+                    <input type="password" @bind="_userLogin.Password">
+                </div>
+            </div>
+            <div>
+                <button @onclick="ToggleUserLoginForm">Zatvori</button>
+                <button @onclick="LoginUser">Dodaj</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+@code {
+    private List<User> _users = new List<User>();
+    private UserService _userService = new UserService(new HttpService(new HttpClient()));
+    private bool _showUserLoginForm = false;
+    private UserLogin _userLogin = new UserLogin();
+    private string _browser = new string("");
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _browser = await JsRuntime.InvokeAsync<string>("getBrowserInfo");
+        _users = await _userService.GetUsersTestAsync();
+    }
+    
+    private async Task<List<User>?> GetUsers()
+    {
+        return await _userService.GetUsers();
+    }
+
+    private void ToggleUserLoginForm()
+    {
+        _showUserLoginForm = !_showUserLoginForm;
+    }
+
+    private void LoginUser()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void SubmitForm()
+    {
+        Console.WriteLine("submit");
+    }
+}

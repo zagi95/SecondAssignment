@@ -32,3 +32,4 @@
 /home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/BlazorClient.pdb
 /home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/BlazorClient.genruntimeconfig.cache
 /home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/ref/BlazorClient.dll
+/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/BlazorClient.sourcelink.json
