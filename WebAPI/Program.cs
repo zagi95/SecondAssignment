@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using WebAPI.Repositories;
+using WebAPI.Services;
+
 namespace WebAPI;
 
 public class Program
@@ -8,6 +12,12 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddAuthorization();
+        builder.Services.AddControllers();
+        builder.Services.AddScoped<UserService>()
+            .AddScoped<IUserRepository, UserRepository>();
+        builder.Services.AddDbContext<WebApiDbContext>(options =>
+            options.UseInMemoryDatabase("MyPrototypeDb"));
+
 
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
@@ -22,7 +32,8 @@ public class Program
 
         app.UseHttpsRedirection();
 
-        app.UseAuthorization();
+        //app.UseAuthorization();
+        app.MapControllers();
 
         app.Run();
     }

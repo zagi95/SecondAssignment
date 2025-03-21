@@ -1,3 +1,5 @@
+using WebAPI.Dtos;
+using WebAPI.Mapper;
 using WebAPI.Models;
 using WebAPI.Repositories;
 
@@ -17,6 +19,12 @@ public class UserService
     public async Task<User?> GetUserByIdAsync(int id) => await _userRepository.GetUserByIdAsync(id);
 
     public async Task AddUserAsync(User user) => await _userRepository.AddUserAsync(user);
+
+    public async Task<UserDto> UpdateUserAsync(UserDto userDto)
+    {
+        var user = await _userRepository.UpdateUserAsync();
+        return UserMapper.ToDto(user);
+    }
 
     public async Task<bool> DeleteUserAsync(int id) => await _userRepository.DeleteUserAsync(id);
 }

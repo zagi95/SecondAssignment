@@ -2,6 +2,7 @@
 @using BlazorClient.Models
 @using BlazorClient.Services
 @inject IJSRuntime JsRuntime
+@inject UserService UserService
 
 <h3><strong>LoginHistory</strong></h3>
 
@@ -67,7 +68,6 @@
 
 @code {
     private List<User> _users = new List<User>();
-    private UserService _userService = new UserService(new HttpService(new HttpClient()));
     private bool _showUserLoginForm = false;
     private UserLogin _userLogin = new UserLogin();
     private string _browser = new string("");
@@ -75,12 +75,7 @@
     protected override async Task OnInitializedAsync()
     {
         _browser = await JsRuntime.InvokeAsync<string>("getBrowserInfo");
-        _users = await _userService.GetUsersTestAsync();
-    }
-    
-    private async Task<List<User>?> GetUsers()
-    {
-        return await _userService.GetUsers();
+        _users = await UserService.GetUsers();
     }
 
     private void ToggleUserLoginForm()

@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/app.css"
     },
     {
+      "Id": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/wwwroot/browser.js",
+      "PackagePath": "staticwebassets/browser.js"
+    },
+    {
       "Id": "obj/Debug/net9.0/staticwebassets/msbuild.BlazorClient.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

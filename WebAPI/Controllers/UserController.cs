@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WebAPI.Dtos;
 using WebAPI.Models;
 using WebAPI.Services;
 
@@ -16,13 +17,13 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<User>>> GetUsers()
+    public async Task<ActionResult<List<UserDto>>> GetUsers()
     {
         return Ok(await _userService.GetUsersAsync());
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<User>> GetUserById(int id)
+    public async Task<ActionResult<UserDto>> GetUserById(int id)
     {
         var user = await _userService.GetUserByIdAsync(id);
         if (user == null) return NotFound();
@@ -30,10 +31,16 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> AddUser(User user)
+    public async Task<ActionResult<UserDto>> AddUser(User user)
     {
         await _userService.AddUserAsync(user);
         return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<UserDto>> UpdateUser(UserDto userDto)
+    {
+        await _userService.UpdateUserAsync(userDto);
     }
 
     [HttpDelete("{id}")]

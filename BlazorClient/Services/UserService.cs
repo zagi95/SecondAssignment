@@ -14,26 +14,16 @@ public class UserService
 
     public async Task<List<User>?> GetUsers()
     {
-        return await _httpService.Get<List<User>>("api/user");
+        return await _httpService.Get<List<User>>("http://localhost:5183/api/users");
     }
 
-    public async Task<List<User>> GetUsersTestAsync()
+    public async Task AddUser(UserRegistration userRegistration)
     {
-        return new List<User>
-        {
-            new()
-            {
-                FirstName = "ime1",
-                LastName = "prezime1",
-                Username = "user1",
-                LoginRecords = new List<LoginRecord>
-                {
-                    new()
-                    {
-                        LoginDate = new DateTime(1995, 2, 22)
-                    }
-                }
-            }
-        };
+        await _httpService.Post("http://localhost:5183/api/users", userRegistration);
+    }
+
+    public async Task UpdateUser(UserRegistration userRegistration)
+    {
+        await _httpService.Post("http://localhost:5183/api/users", userRegistration);
     }
 }

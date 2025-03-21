@@ -9,9 +9,16 @@ public class UserRepository :  IUserRepository
         new User { Id = 1, FirstName = "mate", LastName = "miso", Username = "kovac", Password = "1234" },
         new User { Id = 2, FirstName = "mate2", LastName = "miso2", Username = "kovac2", Password = "12345" },
     };
+    private readonly WebApiDbContext _dbContext;
+
+    public UserRepository(WebApiDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
 
     public async Task<List<User>> GetAllAsync()
     {
+        Console.WriteLine("get all users");
         return await Task.FromResult(_users);
     }
 

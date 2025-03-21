@@ -597,6 +597,304 @@
           "Value": "app.css.gz"
         }
       ]
+    },
+    {
+      "Route": "browser.js",
+      "AssetFile": "browser.js.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.006172839506"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="
+        }
+      ]
+    },
+    {
+      "Route": "browser.js",
+      "AssetFile": "browser.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "220"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="
+        }
+      ]
+    },
+    {
+      "Route": "browser.js.gz",
+      "AssetFile": "browser.js.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20="
+        }
+      ]
+    },
+    {
+      "Route": "browser.x8le421ruf.js",
+      "AssetFile": "browser.js.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.006172839506"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x8le421ruf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="
+        },
+        {
+          "Name": "label",
+          "Value": "browser.js"
+        }
+      ]
+    },
+    {
+      "Route": "browser.x8le421ruf.js",
+      "AssetFile": "browser.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "220"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x8le421ruf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="
+        },
+        {
+          "Name": "label",
+          "Value": "browser.js"
+        }
+      ]
+    },
+    {
+      "Route": "browser.x8le421ruf.js.gz",
+      "AssetFile": "browser.js.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x8le421ruf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20="
+        },
+        {
+          "Name": "label",
+          "Value": "browser.js.gz"
+        }
+      ]
     }
   ]
 }

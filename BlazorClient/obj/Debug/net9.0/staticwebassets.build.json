@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8rb3NKxpLwe1DQCh6M7hnaNlqi3c+Y1L3EizBFu6oNA=",
+  "Hash": "G2ZZXKoyMkgQZSi4NtdqnJpjmuGdVXYDtgw6r34IJF0=",
   "Source": "BlazorClient",
   "BasePath": "_content/BlazorClient",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/scopedcss/projectbundle/BlazorClient.bundle.scp.css"
+    },
+    {
+      "Identity": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/compressed/n3m7qxjf7j-x8le421ruf.gz",
+      "SourceId": "BlazorClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/BlazorClient",
+      "RelativePath": "browser#[.{fingerprint=x8le421ruf}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/wwwroot/browser.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "kb3pxpl518",
+      "Integrity": "EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/wwwroot/browser.js"
     },
     {
       "Identity": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/compressed/sd1xkkhvf8-z4z4fil66m.gz",
@@ -141,6 +162,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/app.css"
+    },
+    {
+      "Identity": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/wwwroot/browser.js",
+      "SourceId": "BlazorClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/wwwroot/",
+      "BasePath": "_content/BlazorClient",
+      "RelativePath": "browser#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "x8le421ruf",
+      "Integrity": "7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/browser.js"
     }
   ],
   "Endpoints": [
@@ -1035,6 +1077,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-gy8ZgapjRs3tNtBgDcDIi0gwqJQfp51KEbk90wFN+IE="
+        }
+      ]
+    },
+    {
+      "Route": "browser.js",
+      "AssetFile": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/compressed/n3m7qxjf7j-x8le421ruf.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.006172839506"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="
+        }
+      ]
+    },
+    {
+      "Route": "browser.js",
+      "AssetFile": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/wwwroot/browser.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "220"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="
+        }
+      ]
+    },
+    {
+      "Route": "browser.js.gz",
+      "AssetFile": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/compressed/n3m7qxjf7j-x8le421ruf.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20="
+        }
+      ]
+    },
+    {
+      "Route": "browser.x8le421ruf.js",
+      "AssetFile": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/compressed/n3m7qxjf7j-x8le421ruf.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.006172839506"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x8le421ruf"
+        },
+        {
+          "Name": "label",
+          "Value": "browser.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="
+        }
+      ]
+    },
+    {
+      "Route": "browser.x8le421ruf.js",
+      "AssetFile": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/wwwroot/browser.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "220"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x8le421ruf"
+        },
+        {
+          "Name": "label",
+          "Value": "browser.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="
+        }
+      ]
+    },
+    {
+      "Route": "browser.x8le421ruf.js.gz",
+      "AssetFile": "/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/compressed/n3m7qxjf7j-x8le421ruf.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "161"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 20 Mar 2025 19:05:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x8le421ruf"
+        },
+        {
+          "Name": "label",
+          "Value": "browser.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EDIer6EBIZcenoeQaaHiqCCQckiGqbA7yeqZPNsJE20="
         }
       ]
     }

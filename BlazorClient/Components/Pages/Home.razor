@@ -77,15 +77,12 @@
 
 @code {
     private List<User> _users = new List<User>();
-
-    //private UserService _userService = new UserService(new HttpService(new HttpClient()));
-
     private UserRegistration _userRegistration = new UserRegistration();
     private bool _showAddUserForm = false;
 
     protected override async Task OnInitializedAsync()
     {
-        _users = await UserService.GetUsersTestAsync();
+        _users = await UserService.GetUsers();
     }
 
     private async Task<List<User>?> GetUsers()
@@ -100,18 +97,13 @@
 
     private void DeleteUser(User user)
     {
+        
         _users.Remove(user);
     }
 
-    private void AddUser()
+    private async Task AddUser()
     {
-        _users.Add(new User
-        {
-            FirstName = _userRegistration.FirstName,
-            LastName = _userRegistration.LastName,
-            Username = _userRegistration.Username,
-            LoginRecords = new List<LoginRecord>()
-        });
+        await UserService.AddUser(_userRegistration);
     }
 
     private void ToggleAddUserForm()
