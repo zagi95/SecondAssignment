@@ -14,6 +14,6 @@ public class User
     public required string Username { get; set; }
 
     [Required]
-    public required string Password { get; set; }
+    public required string PasswordHash { get; set; }
     public List<LoginRecord> LoginRecords { get; set; } = new();
 }

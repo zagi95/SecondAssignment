@@ -34,6 +34,12 @@ public class UserRepository :  IUserRepository
             .FirstOrDefaultAsync(u => u.Id == id);
     }
 
+    public async Task<User?> GetByUsernameAsync(string username)
+    {
+        return await _dbContext.Users
+            .FirstOrDefaultAsync(u => u.Username == username);
+    }
+
     public async Task<User> AddUserAsync(User user)
     {
         _dbContext.Users.Add(user);
@@ -52,7 +58,7 @@ public class UserRepository :  IUserRepository
         existingUser.FirstName = user.FirstName;
         existingUser.LastName = user.LastName;
         existingUser.Username = user.Username;
-        existingUser.Password = user.Password;
+        existingUser.PasswordHash = user.PasswordHash;
 
         await _dbContext.SaveChangesAsync();
         return existingUser;

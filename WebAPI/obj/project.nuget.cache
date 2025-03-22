@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "olCk3fnr6CY=",
+  "dgSpecHash": "0bFJfkXJGJQ=",
   "success": true,
   "projectFilePath": "/home/zagi/RiderProjects/BlazorClient/WebAPI/WebAPI.csproj",
   "expectedPackageFiles": [
+    "/home/zagi/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/home/zagi/.nuget/packages/microsoft.aspnetcore.openapi/9.0.2/microsoft.aspnetcore.openapi.9.0.2.nupkg.sha512",
     "/home/zagi/.nuget/packages/microsoft.entityframeworkcore/9.0.3/microsoft.entityframeworkcore.9.0.3.nupkg.sha512",
     "/home/zagi/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.3/microsoft.entityframeworkcore.abstractions.9.0.3.nupkg.sha512",

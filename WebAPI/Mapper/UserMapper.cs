@@ -34,7 +34,7 @@ public static class UserMapper
             FirstName = dto.FirstName,
             LastName = dto.LastName,
             Username = dto.Username,
-            Password = dto.Password,
+            PasswordHash = dto.Password,
             LoginRecords = new List<LoginRecord>()
         };
     }
@@ -47,7 +47,7 @@ public static class UserMapper
             FirstName = dto.FirstName,
             LastName = dto.LastName,
             Username = dto.Username,
-            Password = dto.Password,
+            PasswordHash = dto.Password,
             LoginRecords = new List<LoginRecord>()
         };
     }
