@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Dtos;
-using WebAPI.Models;
 using WebAPI.Services;
 
 namespace WebAPI.Controllers;
@@ -17,13 +16,15 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<UserDto>>> GetUsers()
+    public async Task<ActionResult<List<UserRecordDto>>> GetUsers()
     {
-        return Ok(await _userService.GetUsersAsync());
+        var users = await _userService.GetUsersAsync();
+        if (users == null) return NotFound();
+        return Ok(users);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<UserDto>> GetUserById(int id)
+    public async Task<ActionResult<UserRecordDto>> GetUserById(int id)
     {
         var user = await _userService.GetUserByIdAsync(id);
         if (user == null) return NotFound();
@@ -31,16 +32,22 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<UserDto>> AddUser(User user)
+    public async Task<ActionResult<UserRecordDto>> AddUser(UserRegistrationDto userRegistrationDto)
     {
-        await _userService.AddUserAsync(user);
-        return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+        var createdUserRecord = await _userService.AddUserAsync(userRegistrationDto);
+        return CreatedAtAction(
+            nameof(GetUserById),
+            new { id = createdUserRecord.Id },
+            createdUserRecord
+            );
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<UserDto>> UpdateUser(UserDto userDto)
+    public async Task<ActionResult<UserRecordDto>> UpdateUser(long id, UserRegistrationDto userRegistrationDto)
     {
-        await _userService.UpdateUserAsync(userDto);
+        var updatedUser = await _userService.UpdateUserAsync(id, userRegistrationDto);
+        if (updatedUser == null) return NotFound();
+        return Ok(updatedUser);
     }
 
     [HttpDelete("{id}")]

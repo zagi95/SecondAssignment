@@ -1,14 +1,10 @@
+using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
 namespace WebAPI.Repositories;
 
 public class UserRepository :  IUserRepository
 {
-    private static List<User> _users = new List<User>
-    {
-        new User { Id = 1, FirstName = "mate", LastName = "miso", Username = "kovac", Password = "1234" },
-        new User { Id = 2, FirstName = "mate2", LastName = "miso2", Username = "kovac2", Password = "12345" },
-    };
     private readonly WebApiDbContext _dbContext;
 
     public UserRepository(WebApiDbContext dbContext)
@@ -16,34 +12,52 @@ public class UserRepository :  IUserRepository
         _dbContext = dbContext;
     }
 
-    public async Task<List<User>> GetAllAsync()
+    public async Task<List<User>?> GetAllAsync()
     {
-        Console.WriteLine("get all users");
-        return await Task.FromResult(_users);
+        return await _dbContext.Users
+            .Include(u => u.LoginRecords)
+            .ToListAsync();
     }
 
     public async Task<User?> GetUserByIdAsync(long id)
     {
-        return await Task.FromResult(_users.SingleOrDefault(user => user.Id == id));
+        return await _dbContext.Users
+            .Include(u => u.LoginRecords)
+            .FirstOrDefaultAsync(u => u.Id == id);
     }
 
-    public async Task AddUserAsync(User user)
+    public async Task<User> AddUserAsync(User user)
     {
-        user.Id = _users.Max(user => user.Id) + 1;
-        _users.Add(user);
-        await Task.CompletedTask;
+        _dbContext.Users.Add(user);
+        await _dbContext.SaveChangesAsync();
+        return user;
     }
 
-    public Task UpdateUserAsync(User user)
+    public async Task<User?> UpdateUserAsync(User user)
     {
-        throw new NotImplementedException();
+        var existingUser = await _dbContext.Users
+            .FirstOrDefaultAsync(u => u.Id == user.Id);
+
+        if (existingUser == null)
+            return null;
+        
+        existingUser.FirstName = user.FirstName;
+        existingUser.LastName = user.LastName;
+        existingUser.Username = user.Username;
+        existingUser.Password = user.Password;
+
+        await _dbContext.SaveChangesAsync();
+        return existingUser;
     }
 
     public async Task<bool> DeleteUserAsync(long id)
     {
-        var user = _users.FirstOrDefault(u => u.Id == id);
-        if (user == null) return false;
-        _users.Remove(user);
-        return await Task.FromResult(true);
+        var user = await _dbContext.Users.FindAsync(id);
+        if (user == null)
+            return false;
+
+        _dbContext.Users.Remove(user);
+        await _dbContext.SaveChangesAsync();
+        return true;   
     }
 }

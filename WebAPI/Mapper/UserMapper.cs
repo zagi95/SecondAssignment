@@ -5,16 +5,15 @@ namespace WebAPI.Mapper;
 
 public static class UserMapper
 {
-    public static UserDto ToDto(User user)
+    public static UserRecordDto ToUserRecordDto(User user)
     {
-        return new UserDto
+        return new UserRecordDto
         {
             Id = user.Id,
             FirstName = user.FirstName,
             LastName = user.LastName,
             Username = user.Username,
-
-            // ✅ Map most recent login record if available
+            
             LoginRecordDto = user.LoginRecords
                 .OrderByDescending(lr => lr.LoginDate)
                 .Select(lr => new LoginRecordDto
@@ -24,24 +23,28 @@ public static class UserMapper
                 .ToList()
         };
     }
-    
-    public static User ToEntity(UserDto dto)
+    public static User FromUserRegistrationDto(UserRegistrationDto dto)
     {
         return new User
         {
-            Id = dto.Id,
             FirstName = dto.FirstName,
             LastName = dto.LastName,
             Username = dto.Username,
+            Password = dto.Password,
+            LoginRecords = new List<LoginRecord>()
+        };
+    }
 
-            // Mapping LoginRecordDtos to LoginRecords (without Id or UserId for now)
-            LoginRecords = dto.LoginRecordDto
-                .Select(dtoRecord => new LoginRecord
-                {
-                    LoginDate = dtoRecord.LoginDate
-                    // UserId and User will be handled by EF when saving
-                })
-                .ToList()
+    public static User FromUserRegistrationDto(long id, UserRegistrationDto dto)
+    {
+        return new User
+        {
+            Id = id,
+            FirstName = dto.FirstName,
+            LastName = dto.LastName,
+            Username = dto.Username,
+            Password = dto.Password,
+            LoginRecords = new List<LoginRecord>()
         };
     }
 }
