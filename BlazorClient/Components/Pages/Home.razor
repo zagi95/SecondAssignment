@@ -34,46 +34,18 @@
             }
             </tbody>
         </table>
-
-        <div>
-            <button @onclick="ToggleAddUserForm">Dodaj novog korisnika</button>
-        </div>
+        
     </div>
+    @if (_showAddUserForm)
+    {
+        <AddUserForm OnUserAdded="OnUserAdded" OnCancel="ToggleAddUserForm" />
+    }
+    else
+    {
+        <button @onclick="ToggleAddUserForm">Dodaj novog korisnika</button>
+    }
 </div>
 
-@if (_showAddUserForm)
-{
-    <EditForm Model="_userRegistration" OnValidSubmit="AddUser">
-        <div>
-            <div>
-                <h5>Dodaj novog korisnika</h5>
-                <button @onclick="ToggleAddUserForm"></button>
-            </div>
-            <div>
-                <div>
-                    <label>Ime</label>
-                    <input @bind="_userRegistration.FirstName">
-                </div>
-                <div>
-                    <label>Prezime</label>
-                    <input @bind="_userRegistration.LastName">
-                </div>
-                <div>
-                    <label>Korisničko ime</label>
-                    <input @bind="_userRegistration.Username">
-                </div>
-                <div>
-                    <label>Lozinka</label>
-                    <input type="password" @bind="_userRegistration.Password">
-                </div>
-            </div>
-            <div>
-                <button @onclick="ToggleAddUserForm">Zatvori</button>
-                <button type="submit">Dodaj</button>
-            </div>
-        </div>
-    </EditForm>
-}
 
 @code {
     private List<User> _users = new List<User>();
@@ -104,6 +76,7 @@
     private async Task AddUser()
     {
         await UserService.AddUser(_userRegistration);
+        StateHasChanged();
     }
 
     private void ToggleAddUserForm()
@@ -114,5 +87,10 @@
     private void NavigateToLog()
     {
         Navigation.NavigateTo("/log");
+    }
+    private async Task OnUserAdded()
+    {
+        _users = await UserService.GetUsers();
+        _showAddUserForm = false;
     }
 }

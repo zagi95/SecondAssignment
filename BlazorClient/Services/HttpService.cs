@@ -27,18 +27,32 @@ public class HttpService : IHttpService
         return response.Result.Content.ReadFromJsonAsync<T>();
     }
 
-    public Task<T?> Post<T>(string uri, T data)
+    public async Task<T?> Post<T>(string uri, T data)
     {
-        throw new NotImplementedException();
+        var response = await _httpClient.PostAsJsonAsync(uri, data);
+
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadFromJsonAsync<T>();
+        }
+
+        return default;
     }
 
-    public Task<T?> Put<T>(string uri, T data)
+    public async Task<T?> Put<T>(string uri, T data)
     {
-        throw new NotImplementedException();
+        var response = await _httpClient.PutAsJsonAsync(uri, data);
+
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadFromJsonAsync<T>();
+        }
+
+        return default;
     }
 
-    public Task Delete(string uri)
+    public async Task Delete(string uri)
     {
-        throw new NotImplementedException();
+        await _httpClient.DeleteAsync(uri);
     }
 }

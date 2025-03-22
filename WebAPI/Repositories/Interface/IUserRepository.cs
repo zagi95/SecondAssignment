@@ -1,10 +1,11 @@
 using WebAPI.Models;
+using WebAPI.Repositories.Projections;
 
 namespace WebAPI.Repositories;
 
 public interface IUserRepository
 {
-    Task<List<User>> GetAllAsync();
+    Task<List<UserProjection>> GetAllAsync();
     Task<User> GetUserByIdAsync(long id);
     Task<User> AddUserAsync(User user);
     Task<User?> UpdateUserAsync(User user);

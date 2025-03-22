@@ -3,6 +3,7 @@
 @using BlazorClient.Services
 @inject IJSRuntime JsRuntime
 @inject UserService UserService
+@inject LoginRecordService LoginRecordService
 
 <h3><strong>LoginHistory</strong></h3>
 
@@ -18,17 +19,14 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var user in _users)
+            @foreach (var loginRecord in _loginRecords)
             {
-                @foreach (var record in user.LoginRecords)
-                {
-                    <tr>
-                        <td>@user.FirstName</td>
-                        <td>@user.LastName</td>
-                        <td>@record.LoginDate</td>
-                        <td></td>
-                    </tr>
-                }
+                <tr>
+                    <td>@loginRecord.FirstName</td>
+                    <td>@loginRecord.LastName</td>
+                    <td>@loginRecord.LoginDate</td>
+                    <td>@loginRecord.Browser</td>
+                </tr>
             }
             </tbody>
         </table>
@@ -67,15 +65,13 @@
 }
 
 @code {
-    private List<User> _users = new List<User>();
+    private List<LoginRecord> _loginRecords = new List<LoginRecord>();
     private bool _showUserLoginForm = false;
     private UserLogin _userLogin = new UserLogin();
-    private string _browser = new string("");
     
     protected override async Task OnInitializedAsync()
     {
-        _browser = await JsRuntime.InvokeAsync<string>("getBrowserInfo");
-        _users = await UserService.GetUsers();
+        _loginRecords = await LoginRecordService.GetLoginRecords();
     }
 
     private void ToggleUserLoginForm()

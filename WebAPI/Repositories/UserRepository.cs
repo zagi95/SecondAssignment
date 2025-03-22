@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using WebAPI.Dtos;
 using WebAPI.Models;
+using WebAPI.Repositories.Projections;
 
 namespace WebAPI.Repositories;
 
@@ -12,10 +14,16 @@ public class UserRepository :  IUserRepository
         _dbContext = dbContext;
     }
 
-    public async Task<List<User>?> GetAllAsync()
+    public async Task<List<UserProjection>> GetAllAsync()
     {
         return await _dbContext.Users
-            .Include(u => u.LoginRecords)
+            .Select(u => new UserProjection
+            {
+                Id = u.Id,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                LoginCount = u.LoginRecords.Count
+            })
             .ToListAsync();
     }
 

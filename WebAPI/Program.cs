@@ -13,8 +13,11 @@ public class Program
         // Add services to the container.
         builder.Services.AddAuthorization();
         builder.Services.AddControllers();
-        builder.Services.AddScoped<UserService>()
-            .AddScoped<IUserRepository, UserRepository>();
+        builder.Services
+            .AddScoped<UserService>()
+            .AddScoped<IUserRepository, UserRepository>()
+            .AddScoped<LoginService>()
+            .AddScoped<ILoginRecordRepository, LoginRecordRepository>();
         builder.Services.AddDbContext<WebApiDbContext>(options =>
             options.UseInMemoryDatabase("MyPrototypeDb"));
 

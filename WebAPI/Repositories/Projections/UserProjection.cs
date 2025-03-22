@@ -1,6 +1,6 @@
-namespace WebAPI.Dtos;
+namespace WebAPI.Repositories.Projections;
 
-public class UserRecordDto
+public class UserProjection
 {
     public long Id { get; set; }
     public string FirstName { get; set; }

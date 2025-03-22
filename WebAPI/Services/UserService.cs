@@ -18,7 +18,6 @@ public class UserService
     {
         var users = await _userRepository.GetAllAsync();
         return users.Select(UserMapper.ToUserRecordDto).ToList();
-
     }
 
     public async Task<UserRecordDto?> GetUserByIdAsync(int id)

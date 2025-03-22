@@ -1,0 +1,54 @@
+@using BlazorClient.Models
+@using BlazorClient.Services
+@inject UserService UserService
+
+<h3>AddUserForm</h3>
+
+<EditForm Model="_user" OnValidSubmit="HandleSubmit">
+    <div>
+        <div>
+            <h5>Dodaj novog korisnika</h5>
+        </div>
+        <div>
+            <div>
+                <label>Ime</label>
+                <input @bind="_user.FirstName">
+            </div>
+            <div>
+                <label>Prezime</label>
+                <input @bind="_user.LastName">
+            </div>
+            <div>
+                <label>Korisničko ime</label>
+                <input @bind="_user.Username">
+            </div>
+            <div>
+                <label>Lozinka</label>
+                <input type="password" @bind="_user.Password">
+            </div>
+        </div>
+        <div>
+            <button type="submit">Dodaj</button>
+            <button type="button" @onclick="CloseForm">Zatvori</button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private UserRegistration _user = new();
+    
+    [Parameter] public EventCallback OnUserAdded { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private async Task HandleSubmit()
+    {
+        await UserService.AddUser(_user);
+        _user = new();
+        await OnUserAdded.InvokeAsync();
+    }
+
+    private async Task CloseForm()
+    {
+        await OnCancel.InvokeAsync();
+    }
+}

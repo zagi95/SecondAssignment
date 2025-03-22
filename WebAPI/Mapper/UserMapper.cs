@@ -1,5 +1,6 @@
 using WebAPI.Dtos;
 using WebAPI.Models;
+using WebAPI.Repositories.Projections;
 
 namespace WebAPI.Mapper;
 
@@ -12,15 +13,18 @@ public static class UserMapper
             Id = user.Id,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Username = user.Username,
-            
-            LoginRecordDto = user.LoginRecords
-                .OrderByDescending(lr => lr.LoginDate)
-                .Select(lr => new LoginRecordDto
-                {
-                    LoginDate = lr.LoginDate
-                })
-                .ToList()
+            LoginCount = user.LoginRecords.Count,
+        };
+    }
+
+    public static UserRecordDto ToUserRecordDto(UserProjection user)
+    {
+        return new UserRecordDto
+        {
+            Id = user.Id,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            LoginCount = user.LoginCount
         };
     }
     public static User FromUserRegistrationDto(UserRegistrationDto dto)
