@@ -1,0 +1,63 @@
+@using BlazorClient.Models
+@using BlazorClient.Services
+@inject UserService UserService
+
+<EditForm Model="_editUser" OnValidSubmit="HandleSubmit">
+    <div>
+        <h5>Uredi korisnika</h5>
+
+        <div>
+            <label>Ime</label>
+            <input @bind="_editUser.FirstName" />
+        </div>
+        <div>
+            <label>Prezime</label>
+            <input @bind="_editUser.LastName" />
+        </div>
+        <div>
+            <label>Korisničko ime</label>
+            <input @bind="_editUser.Username" />
+        </div>
+        <div>
+            <label>Lozinka</label>
+            <input type="password" @bind="_editUser.Password" />
+        </div>
+
+        <div>
+            <button type="submit">Spremi</button>
+            <button type="button" @onclick="CloseForm">Odustani</button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private UserUpdate _editUser = new();
+    [Parameter] public UserUpdate? UserToEdit { get; set; }
+    [Parameter] public EventCallback OnUserEdited { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+    
+    protected override void OnParametersSet()
+    {
+        Console.WriteLine("OnParameterSet");
+        if (UserToEdit != null)
+        {
+            _editUser = new UserUpdate
+            {
+                Id = UserToEdit.Id,
+            };
+        }
+    }
+
+    private async Task HandleSubmit()
+    {
+        Console.WriteLine("HandleSubmit");
+        await UserService.UpdateUser(_editUser);
+        _editUser = new();
+        await OnUserEdited.InvokeAsync();
+    }
+
+    private async Task CloseForm()
+    {
+        await OnCancel.InvokeAsync();
+    }
+}

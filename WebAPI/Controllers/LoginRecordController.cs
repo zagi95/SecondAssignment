@@ -8,17 +8,19 @@ namespace WebAPI.Controllers;
 [ApiController]
 public class LoginController : ControllerBase
 {
-    private readonly LoginService _service;
+    private readonly LoginRecordService _recordService;
 
-    public LoginController(LoginService service)
+    public LoginController(LoginRecordService recordService)
     {
-        _service = service;
+        _recordService = recordService;
     }
 
     [HttpGet]
     public async Task<ActionResult<List<LoginRecordDto>>> GetAll()
     {
-        var records = await _service.GetAllAsync();
+        Console.WriteLine("GetLoginRecords");
+        var records = await _recordService.GetAllAsync();
+        if (records == null) return NotFound();
         return Ok(records);
     }
 }

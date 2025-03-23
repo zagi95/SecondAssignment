@@ -16,8 +16,9 @@ public class Program
         builder.Services
             .AddScoped<UserService>()
             .AddScoped<IUserRepository, UserRepository>()
-            .AddScoped<LoginService>()
-            .AddScoped<ILoginRecordRepository, LoginRecordRepository>();
+            .AddScoped<LoginRecordService>()
+            .AddScoped<ILoginRecordRepository, LoginRecordRepository>()
+            .AddScoped<AuthenticationService>();
         builder.Services.AddDbContext<WebApiDbContext>(options =>
             options.UseInMemoryDatabase("MyPrototypeDb"));
 

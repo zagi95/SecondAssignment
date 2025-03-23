@@ -5,12 +5,12 @@ using WebAPI.Repositories;
 
 namespace WebAPI.Services;
 
-public class AuthService
+public class AuthenticationService
 {
     private readonly IUserRepository _userRepository;
     private readonly ILoginRecordRepository _loginRecordRepository;
 
-    public AuthService(IUserRepository userRepository, ILoginRecordRepository loginRecordRepository)
+    public AuthenticationService(IUserRepository userRepository, ILoginRecordRepository loginRecordRepository)
     {
         _userRepository = userRepository;
         _loginRecordRepository = loginRecordRepository;
@@ -18,6 +18,7 @@ public class AuthService
 
     public async Task<LoginRecordDto?> LoginAsync(UserLoginDto dto)
     {
+        Console.WriteLine("LoginUserService");
         var user = await _userRepository.GetByUsernameAsync(dto.Username);
         if (user == null)
             return null;

@@ -1,9 +1,10 @@
 namespace BlazorClient.Models;
 
-public class User
+public class UserUpdate
 {
     public long Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public int LoginCount {  get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
 }

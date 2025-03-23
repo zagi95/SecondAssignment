@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0bFJfkXJGJQ=",
+  "dgSpecHash": "fh+5lFh9vRw=",
   "success": true,
   "projectFilePath": "/home/zagi/RiderProjects/BlazorClient/WebAPI/WebAPI.csproj",
   "expectedPackageFiles": [
@@ -18,7 +18,8 @@
     "/home/zagi/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.3/microsoft.extensions.logging.abstractions.9.0.3.nupkg.sha512",
     "/home/zagi/.nuget/packages/microsoft.extensions.options/9.0.3/microsoft.extensions.options.9.0.3.nupkg.sha512",
     "/home/zagi/.nuget/packages/microsoft.extensions.primitives/9.0.3/microsoft.extensions.primitives.9.0.3.nupkg.sha512",
-    "/home/zagi/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+    "/home/zagi/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512",
+    "/home/zagi/.nuget/packages/uaparser/3.1.47/uaparser.3.1.47.nupkg.sha512"
   ],
   "logs": []
 }

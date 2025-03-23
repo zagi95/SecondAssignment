@@ -27,14 +27,14 @@
     <StaticWebAssetEndpoint Include="_content/BlazorClient/browser.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\browser.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"220"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Mar 2025 19:05:19 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-O4HL4sJTCm3yU232cNN/qDkabE4qKwjJbBN853f4fXs="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"65"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022O4HL4sJTCm3yU232cNN/qDkabE4qKwjJbBN853f4fXs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 23 Mar 2025 13:39:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/BlazorClient/browser.x8le421ruf.js">
+    <StaticWebAssetEndpoint Include="_content/BlazorClient/browser.xtp003dxef.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\browser.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"x8le421ruf"},{"Name":"integrity","Value":"sha256-7wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE="},{"Name":"label","Value":"_content/BlazorClient/browser.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"220"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227wBwPugK62baITS14OLThs6dulfh0yAJGqfIklRD1wE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Mar 2025 19:05:19 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xtp003dxef"},{"Name":"integrity","Value":"sha256-O4HL4sJTCm3yU232cNN/qDkabE4qKwjJbBN853f4fXs="},{"Name":"label","Value":"_content/BlazorClient/browser.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"65"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022O4HL4sJTCm3yU232cNN/qDkabE4qKwjJbBN853f4fXs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 23 Mar 2025 13:39:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

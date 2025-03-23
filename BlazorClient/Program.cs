@@ -14,6 +14,7 @@ public class Program
         builder.Services.AddScoped(c => new HttpClient())
             .AddScoped<IHttpService, HttpService>()
             .AddScoped<UserService>()
+            .AddScoped<LoginRecordService>()
             .AddRazorComponents()
             .AddInteractiveServerComponents();
 

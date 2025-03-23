@@ -14,6 +14,7 @@ public class LoginRecordService
     
     public async Task<List<LoginRecord>?> GetLoginRecords()
     {
+        Console.WriteLine("LoginUserService::GetLoginRecords");
         return await _httpService.Get<List<LoginRecord>>("http://localhost:5183/api/login_records");
     }
 }

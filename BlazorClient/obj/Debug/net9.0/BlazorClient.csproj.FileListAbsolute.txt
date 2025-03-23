@@ -33,4 +33,4 @@
 /home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/BlazorClient.genruntimeconfig.cache
 /home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/ref/BlazorClient.dll
 /home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/BlazorClient.sourcelink.json
-/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/compressed/n3m7qxjf7j-x8le421ruf.gz
+/home/zagi/RiderProjects/BlazorClient/BlazorClient/obj/Debug/net9.0/compressed/n3m7qxjf7j-xtp003dxef.gz

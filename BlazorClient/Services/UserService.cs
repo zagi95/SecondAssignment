@@ -19,11 +19,27 @@ public class UserService
 
     public async Task AddUser(UserRegistration userRegistration)
     {
-        await _httpService.Post("http://localhost:5183/api/users", userRegistration);
+        await _httpService.Post("http://localhost:5183/api/auth/register", userRegistration);
     }
 
-    public async Task UpdateUser(UserRegistration userRegistration)
+    public async Task UpdateUser(UserUpdate userUpdate)
     {
-        await _httpService.Post("http://localhost:5183/api/users", userRegistration);
+        await _httpService.Put($"http://localhost:5183/api/users/{userUpdate.Id}", userUpdate);
     }
+
+    public async Task<bool> DeleteUser(long userId)
+    {
+        return await _httpService.Delete($"http://localhost:5183/api/users/{userId}");
+    }
+    
+    public async Task<LoginRecord?> LoginUser(UserLogin login, string userAgent)
+    {
+        var headers = new Dictionary<string, string>
+        {
+            { "User-Agent", userAgent }
+        };
+        return await _httpService.Post<UserLogin, LoginRecord>
+            ("http://localhost:5183/api/auth/login", login, headers);
+    }
+
 }

@@ -1,0 +1,51 @@
+@page "/LoginForm"
+@using BlazorClient.Models
+@using BlazorClient.Services
+@inject UserService UserService
+@inject IJSRuntime JsRuntime
+
+<h3>LoginForm</h3>
+
+<EditForm Model="_userLogin" OnValidSubmit="HandleLogin">
+    <DataAnnotationsValidator />
+    <div>
+        <h5>Login</h5>
+
+        <div>
+            <label>Korisničko ime</label>
+            <input @bind="_userLogin.Username" />
+        </div>
+        <div>
+            <label>Lozinka</label>
+            <input type="password" @bind="_userLogin.Password" />
+        </div>
+
+        <div>
+            <button type="submit">Login</button>
+            <button type="button" @onclick="() => OnCancel.InvokeAsync()">Zatvori</button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private UserLogin _userLogin = new();
+
+    [Parameter] public EventCallback<LoginRecord> OnLoginSuccess { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private async Task HandleLogin()
+    {
+        var userAgent = await JsRuntime.InvokeAsync<string>("getBrowserInfo");
+        var loginRecord = await UserService.LoginUser(_userLogin, userAgent);
+
+        if (loginRecord != null)
+        {
+            _userLogin = new();
+            await OnLoginSuccess.InvokeAsync(loginRecord);
+        }
+        else
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "Login failed.");
+        }
+    }
+}

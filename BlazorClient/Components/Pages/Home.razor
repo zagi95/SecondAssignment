@@ -36,6 +36,13 @@
         </table>
         
     </div>
+    @if (_showEditForm && _selectedUser != null)
+    {
+        <EditUserForm
+            UserToEdit="_selectedUser"
+            OnUserEdited="OnUserEdited"
+            OnCancel="ToggleEditUserForm" />
+    }
     @if (_showAddUserForm)
     {
         <AddUserForm OnUserAdded="OnUserAdded" OnCancel="ToggleAddUserForm" />
@@ -48,9 +55,11 @@
 
 
 @code {
-    private List<User> _users = new List<User>();
-    private UserRegistration _userRegistration = new UserRegistration();
+    private List<User> _users = new();
+    private UserRegistration _userRegistration = new();
+    private UserUpdate _selectedUser = new();
     private bool _showAddUserForm = false;
+    private bool _showEditForm = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -62,15 +71,20 @@
         return await UserService.GetUsers();
     }
 
-    private void EditUser(User user)
+    private async Task EditUser(User user)
     {
-        Console.WriteLine($"Editing {user.FirstName} {user.LastName}");
+        _selectedUser.Id = user.Id;
+        Console.WriteLine(_selectedUser);
+        _showEditForm = true;
     }
 
-    private void DeleteUser(User user)
+    private async Task DeleteUser(User user)
     {
-        
-        _users.Remove(user);
+        var success = await UserService.DeleteUser(user.Id);
+        if (success)
+        {
+            _users.Remove(user);
+        }
     }
 
     private async Task AddUser()
@@ -84,6 +98,11 @@
         _showAddUserForm = !_showAddUserForm;
     }
 
+    private void ToggleEditUserForm()
+    {
+        _showEditForm = !_showEditForm;
+    }
+
     private void NavigateToLog()
     {
         Navigation.NavigateTo("/log");
@@ -92,5 +111,11 @@
     {
         _users = await UserService.GetUsers();
         _showAddUserForm = false;
+    }
+
+    private async Task OnUserEdited()
+    {
+        _users = await UserService.GetUsers();
+        _showEditForm = false;
     }
 }

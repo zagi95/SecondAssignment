@@ -28,6 +28,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BZGRVc2VyRm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/zagi/RiderProjects/BlazorClient/BlazorClient/Components/Pages/EditUserForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FZGl0VXNlckZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/zagi/RiderProjects/BlazorClient/BlazorClient/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/zagi/RiderProjects/BlazorClient/BlazorClient/Components/Pages/Log.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Mb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/zagi/RiderProjects/BlazorClient/BlazorClient/Components/Pages/LoginForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Mb2dpbkZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/zagi/RiderProjects/BlazorClient/BlazorClient/Components/Routes.razor]
