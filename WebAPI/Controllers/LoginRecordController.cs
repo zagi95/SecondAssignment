@@ -18,7 +18,6 @@ public class LoginController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<LoginRecordDto>>> GetAll()
     {
-        Console.WriteLine("GetLoginRecords");
         var records = await _recordService.GetAllAsync();
         if (records == null) return NotFound();
         return Ok(records);

@@ -9,8 +9,8 @@
 <div>
     <button @onclick="NavigateToLog">Log</button>
 </div>
-<div style="height: 80vh;">
-    <div style="width: 50%;">
+<div>
+    <div>
         <table>
             <thead>
             <tr>
@@ -65,19 +65,19 @@
     {
         _users = await UserService.GetUsers();
     }
-
+    
     private async Task<List<User>?> GetUsers()
     {
         return await UserService.GetUsers();
     }
-
+    
     private async Task EditUser(User user)
     {
         _selectedUser.Id = user.Id;
         Console.WriteLine(_selectedUser);
         _showEditForm = true;
     }
-
+    
     private async Task DeleteUser(User user)
     {
         var success = await UserService.DeleteUser(user.Id);
@@ -86,33 +86,28 @@
             _users.Remove(user);
         }
     }
-
-    private async Task AddUser()
-    {
-        await UserService.AddUser(_userRegistration);
-        StateHasChanged();
-    }
-
+    
     private void ToggleAddUserForm()
     {
         _showAddUserForm = !_showAddUserForm;
     }
-
+    
     private void ToggleEditUserForm()
     {
         _showEditForm = !_showEditForm;
     }
-
+    
     private void NavigateToLog()
     {
         Navigation.NavigateTo("/log");
     }
+    
     private async Task OnUserAdded()
     {
         _users = await UserService.GetUsers();
         _showAddUserForm = false;
     }
-
+    
     private async Task OnUserEdited()
     {
         _users = await UserService.GetUsers();

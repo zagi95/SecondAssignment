@@ -22,8 +22,6 @@ public class AuthenticationController : ControllerBase
     [HttpPost("login")]
     public async Task<ActionResult<LoginRecordDto>> Login(UserLoginDto dto)
     {
-        Console.WriteLine("LoginUser");
-        Console.WriteLine(Request.Headers["User-Agent"]);
         dto.Browser = UserAgentParser.GetBrowserInfo(Request.Headers["User-Agent"].ToString());
         var record = await _authenticationService.LoginAsync(dto);
         if (record == null) return Unauthorized();

@@ -52,7 +52,7 @@ public class HttpService : IHttpService
                 request.Headers.TryAddWithoutValidation(header.Key, header.Value);
             }
         }
-        Console.WriteLine("HEADER USER AGENT: " + request.Headers.UserAgent.ToString());
+
         var response = await _httpClient.SendAsync(request);
         
         if (response.IsSuccessStatusCode)
