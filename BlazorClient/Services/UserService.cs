@@ -17,9 +17,10 @@ public class UserService
         return await _httpService.Get<List<User>>("http://localhost:5183/api/users");
     }
 
-    public async Task AddUser(UserRegistration userRegistration)
+    public async Task<User?> AddUser(UserRegistration userRegistration)
     {
-        await _httpService.Post("http://localhost:5183/api/auth/register", userRegistration);
+        return await _httpService.Post<UserRegistration, User>
+            ("http://localhost:5183/api/auth/register", userRegistration);
     }
 
     public async Task UpdateUser(UserUpdate userUpdate)

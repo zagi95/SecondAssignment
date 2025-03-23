@@ -37,14 +37,17 @@
 @code {
     private UserRegistration _user = new();
     
-    [Parameter] public EventCallback OnUserAdded { get; set; }
+    [Parameter] public EventCallback<User> OnUserAdded { get; set; }
     [Parameter] public EventCallback OnCancel { get; set; }
 
     private async Task HandleSubmit()
     {
-        await UserService.AddUser(_user);
-        _user = new();
-        await OnUserAdded.InvokeAsync();
+        var addedUser = await UserService.AddUser(_user);
+        if (addedUser != null)
+        {
+            await OnUserAdded.InvokeAsync(addedUser);
+            _user = new();
+        }
     }
 
     private async Task CloseForm()

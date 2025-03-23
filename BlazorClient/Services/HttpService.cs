@@ -57,9 +57,10 @@ public class HttpService : IHttpService
         
         if (response.IsSuccessStatusCode)
         {
+            Console.WriteLine("response is success");
             return await response.Content.ReadFromJsonAsync<TResp>();
         }
-        
+        Console.WriteLine("response is not success");
         return default;
     }
 

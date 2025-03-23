@@ -22,8 +22,9 @@ public class AuthenticationController : ControllerBase
     [HttpPost("login")]
     public async Task<ActionResult<LoginRecordDto>> Login(UserLoginDto dto)
     {
-        dto.Browser = UserAgentParser.GetBrowserInfo(Request.Headers["User-Agent"].ToString());
-        var record = await _authenticationService.LoginAsync(dto);
+        Console.WriteLine("request login");
+        var userAgent = UserAgentParser.GetBrowserInfo(Request.Headers["User-Agent"].ToString());
+        var record = await _authenticationService.LoginAsync(dto, userAgent);
         if (record == null) return Unauthorized();
         return Ok(record);
     }

@@ -16,7 +16,7 @@ public class AuthenticationService
         _loginRecordRepository = loginRecordRepository;
     }
 
-    public async Task<LoginRecordDto?> LoginAsync(UserLoginDto dto)
+    public async Task<LoginRecordDto?> LoginAsync(UserLoginDto dto, string userAgent)
     {
         var user = await _userRepository.GetByUsernameAsync(dto.Username);
         if (user == null)
@@ -30,7 +30,7 @@ public class AuthenticationService
         {
             UserId = user.Id,
             LoginDate = DateTime.UtcNow,
-            Browser = dto.Browser
+            Browser = userAgent,
         };
 
         await _loginRecordRepository.AddAsync(record);
@@ -41,7 +41,7 @@ public class AuthenticationService
             FirstName = user.FirstName,
             LastName = user.LastName,
             LoginDate = record.LoginDate,
-            Browser = dto.Browser
+            Browser = userAgent
         };
     }
 

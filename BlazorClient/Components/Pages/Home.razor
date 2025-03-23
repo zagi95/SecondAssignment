@@ -66,11 +66,6 @@
         _users = await UserService.GetUsers();
     }
     
-    private async Task<List<User>?> GetUsers()
-    {
-        return await UserService.GetUsers();
-    }
-    
     private async Task EditUser(User user)
     {
         _selectedUser.Id = user.Id;
@@ -102,9 +97,10 @@
         Navigation.NavigateTo("/log");
     }
     
-    private async Task OnUserAdded()
+    private async Task OnUserAdded(User user)
     {
-        _users = await UserService.GetUsers();
+        //_users = await UserService.GetUsers();
+        _users.Add(user);
         _showAddUserForm = false;
     }
     

@@ -61,19 +61,12 @@
         _showUserLoginForm = !_showUserLoginForm;
     }
 
-    private async Task LoginUser()
-    {
-        Console.WriteLine("LoginUser");
-        var userAgent = await JsRuntime.InvokeAsync<string>("getBrowserInfo");
-        var user = await UserService.LoginUser(_userLogin, userAgent);
-    }
-
     private void NavigateToUsers()
     {
         Navigation.NavigateTo("/");
     }
-    private async Task HandleLoginSuccess()
+    private async Task HandleLoginSuccess(LoginRecord record)
     {
-        _loginRecords = await LoginRecordService.GetLoginRecords();
+        _loginRecords.Add(record);
     }
 }
